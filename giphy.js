@@ -1,6 +1,15 @@
 var topics = ['skate', 'shoe', 'trains', 'planes', 'cats', 'dogs', 'history']
 
 
+var stillImgUrl = '';
+
+var animateImgUrl = '';
+
+var gifCondition = '';
+
+var stillUrl = '';
+
+var animateUrl = '';
 
 
 var createBtn = function(){
@@ -80,11 +89,11 @@ var displayGif = function(){
 }
 
 var gifAnimate = function(){
-	var gifCondition = $(this).data('type');
+	gifCondition = $(this).data('type');
 
-	var stillUrl = $(this).data('still');
+	stillUrl = $(this).data('still');
 
-	var animateUrl = $(this).data('animate');
+	animateUrl = $(this).data('animate');
 
 	if(gifCondition === 'still'){
 
@@ -92,11 +101,23 @@ var gifAnimate = function(){
 
 		$(this).data('type', 'animate');
 
+		// gifCondition = $(this).data('type');
+
 		console.log(gifCondition);
-		console.log('still' + stillUrl);
-		console.log('animate' + animateUrl);
 	}
-	// else if (gifCondition)
+	else if (gifCondition === 'animate'){
+
+		$(this).attr('src', stillUrl);
+
+		$(this).data('type', 'still');
+
+		console.log(true);
+
+		// $(this).attr('src', stillUrl);
+
+		
+
+	}
 	
 }
 
