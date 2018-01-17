@@ -65,7 +65,7 @@ var displayGif = function(){
       			newImg.attr('data-animate', animateImgUrl);
       			newImg.attr('src', stillImgUrl);
       			newImg.attr('data-type', 'still');
-      			newImg.addClass('class', 'gifImage')
+      			newImg.addClass('gifImage');
 
       			$('.gifSection').append(newImg);
 
@@ -80,10 +80,24 @@ var displayGif = function(){
 }
 
 var gifAnimate = function(){
+	var gifCondition = $(this).data('type');
 
+	var stillUrl = $(this).data('still');
 
+	var animateUrl = $(this).data('animate');
 
-	console.log(true);
+	if(gifCondition === 'still'){
+
+		$(this).attr('src', animateUrl);
+
+		$(this).data('type', 'animate');
+
+		console.log(gifCondition);
+		console.log('still' + stillUrl);
+		console.log('animate' + animateUrl);
+	}
+	// else if (gifCondition)
+	
 }
 
 createBtn();
